@@ -1,0 +1,239 @@
+/* ===== Interactive About page (works on top of App.css) ===== */
+
+.about {
+  position: relative;
+}
+
+/* screen-reader-only helpers */
+.about-sr,
+.about-live {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* ---------- Typewriter role ---------- */
+.about-role {
+  min-height: 1.6em;
+}
+
+.about-caret {
+  display: inline-block;
+  width: 3px;
+  height: 1.05em;
+  margin-left: 4px;
+  vertical-align: -0.15em;
+  background: #e7a145;
+  animation: aboutBlink 1s steps(1) infinite;
+}
+
+@keyframes aboutBlink {
+  50% { opacity: 0; }
+}
+
+/* ---------- Bouncy name letters ---------- */
+.about-word {
+  display: inline-block;
+  white-space: nowrap;
+  margin-right: 0.25em;
+}
+
+.about-word:last-child {
+  margin-right: 0;
+}
+
+.about-letter {
+  display: inline-block;
+  cursor: default;
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), color 0.2s ease;
+  animation: aboutLetterIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) backwards;
+  animation-delay: calc(0.3s + var(--d) * 0.04s);
+}
+
+.about-letter:hover {
+  color: #e7a145;
+  transform: translateY(-12px) rotate(-6deg);
+}
+
+@keyframes aboutLetterIn {
+  from {
+    opacity: 0;
+    transform: translateY(40px) rotate(8deg);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ---------- Click-to-copy email ---------- */
+.about-copy {
+  position: relative;
+  width: 100%;
+  font-family: inherit;
+  text-align: center;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.about-copy:hover {
+  background: #7a4a1a;
+  text-decoration: none;
+}
+
+.about-copy:active {
+  transform: scale(0.97);
+}
+
+.about-copy.is-copied {
+  background: #4f7a3a;
+}
+
+.about-copy::after {
+  content: attr(data-tip);
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  padding: 0.3rem 0.6rem;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+  color: #1a1a1a;
+  background: #fff7ec;
+  border: 1.5px solid #1a1a1a;
+  border-radius: 4px;
+  opacity: 0;
+  transform: translate(-50%, 6px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  pointer-events: none;
+}
+
+.about-copy:hover::after,
+.about-copy:focus-visible::after,
+.about-copy.is-copied::after {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+/* ---------- Where to next? ---------- */
+.about-next {
+  padding: 4rem 0 6rem;
+}
+
+.about-next-heading {
+  margin-bottom: 2.25rem;
+  font-family: 'Playfair Display', serif;
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: #c08552;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.15);
+}
+
+.about-next-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 2.5rem;
+}
+
+.about-next-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.4rem;
+  padding: 1.6rem 3.6rem 1.4rem 1.4rem;
+  text-align: left;
+  background-color: #e8e8e6;
+  background-image: radial-gradient(rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+  background-size: 4px 4px;
+  border: 2.5px solid #1a1a1a;
+  border-radius: 6px;
+  box-shadow: 7px 7px 0 #2e2a45;
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.about-next-card:nth-child(2) {
+  top: 1.5rem;
+}
+
+.about-next-card:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 10px 10px 0 #2e2a45;
+}
+
+.about-next-card:focus-visible {
+  outline: 3px solid #d2b061;
+  outline-offset: 4px;
+}
+
+.about-next-tab {
+  position: absolute;
+  top: -7px;
+  left: 10px;
+  width: 56px;
+  height: 12px;
+  background: #b4533f;
+  border: 2px solid #1a1a1a;
+  border-radius: 3px;
+}
+
+.about-next-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: #633a11;
+}
+
+.about-next-desc {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 300;
+  color: #555;
+}
+
+.about-next-sparkle {
+  position: absolute;
+  top: 50%;
+  right: 16px;
+  width: 28px;
+  color: #d2b061;
+  transform: translateY(-50%);
+  transition: transform 0.4s ease, color 0.3s ease;
+}
+
+.about-next-card:hover .about-next-sparkle {
+  color: #e7a145;
+  transform: translateY(-50%) translateX(4px) rotate(90deg) scale(1.15);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1024px) {
+  .about-next-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    max-width: 480px;
+  }
+
+  .about-next-card:nth-child(2) {
+    top: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-next-heading {
+    font-size: 1.75rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .about-letter,
+  .about-caret {
+    animation: none;
+  }
+}

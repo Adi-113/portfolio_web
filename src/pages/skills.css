@@ -1,0 +1,291 @@
+/* ===== Skills & Certifications ===== */
+
+.sc-section {
+  padding: 5rem 0 6rem;
+}
+
+/* Clouds on the left, cards on the right */
+.sc-layout {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  align-items: start;
+  gap: 4rem;
+}
+
+.sc-bubbles {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.5rem;
+  position: sticky;
+  top: 2rem;
+}
+
+/* ---------- Cloud bubble buttons ---------- */
+.sc-bubble {
+  position: relative;
+  width: 300px;
+  aspect-ratio: 320 / 260;
+  padding: 0;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  opacity: 0.55;
+  filter: saturate(0.6);
+  transform: scale(0.92);
+  transition: opacity 0.3s ease, filter 0.3s ease, transform 0.4s ease;
+  animation: scFadeUp 0.8s ease-out backwards;
+}
+
+.sc-bubble:nth-child(2) {
+  animation-delay: 0.15s;
+}
+
+.sc-bubble:hover {
+  opacity: 0.85;
+  filter: saturate(0.9);
+  transform: scale(0.96) rotate(-2deg);
+}
+
+.sc-bubble.is-active {
+  opacity: 1;
+  filter: none;
+  transform: scale(1);
+}
+
+.sc-bubble.is-active:hover {
+  transform: scale(1.03) rotate(-2deg);
+}
+
+.sc-bubble:focus-visible {
+  outline: 3px dashed #633a11;
+  outline-offset: 4px;
+  border-radius: 40%;
+}
+
+.sc-bubble svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 8px 14px rgba(192, 133, 82, 0.25));
+}
+
+.sc-bubble-label {
+  position: absolute;
+  inset: 0 0 14% 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 0.3em;
+  padding-top: 0.9em; /* balances trailing letter-spacing */
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.75rem;
+  font-weight: 400;
+  letter-spacing: 0.3em;
+  color: #fff;
+  text-shadow: 0 1px 2px rgba(99, 58, 17, 0.35);
+  pointer-events: none;
+}
+
+.sc-bubble-label--long {
+  font-size: 1.5rem;
+  letter-spacing: 0.3em;
+  padding-top: 1.0em;
+  padding-left: 0.2em;
+}
+
+/* underline under the active label */
+.sc-bubble.is-active .sc-bubble-label::after {
+  content: '';
+  position: absolute;
+  bottom: 36%;
+  left: 50%;
+  width: 40px;
+  height: 3px;
+  background: #fff;
+  border-radius: 2px;
+  transform: translateX(-50%);
+}
+
+.sc-tab-panel {
+  animation: scFadeUp 0.35s ease-out;
+}
+
+/* ---------- Staggered card grid ---------- */
+.sc-cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 400px));
+  column-gap: 2.5rem;
+  row-gap: 2.25rem;
+  padding-top: 1rem;
+  padding-bottom: 4.5rem; /* room for the offset column */
+}
+
+.sc-cards > :nth-child(even) {
+  position: relative;
+  top: 4.5rem;
+}
+
+/* ---------- Card ---------- */
+.sc-card {
+  position: relative;
+  display: block;
+  min-height: 92px;
+  padding: 1.35rem 3.6rem 1.2rem 1.4rem;
+  background-color: #e8e8e6;
+  background-image: radial-gradient(rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+  background-size: 4px 4px;
+  border: 2.5px solid #1a1a1a;
+  border-radius: 6px;
+  box-shadow: 7px 7px 0 #2e2a45;
+  color: inherit;
+  text-decoration: none;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  animation: scFadeUp 0.7s ease-out backwards;
+  animation-delay: calc(0.1s + var(--i, 0) * 0.08s);
+}
+
+.sc-card:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 10px 10px 0 #2e2a45;
+}
+
+/* red tab on top-left */
+.sc-card-tab {
+  position: absolute;
+  top: -7px;
+  left: 10px;
+  width: 56px;
+  height: 12px;
+  background: #b4533f;
+  border: 2px solid #1a1a1a;
+  border-radius: 3px;
+}
+
+/* gold sparkle on the right */
+.sc-card-sparkle {
+  position: absolute;
+  top: 50%;
+  right: 14px;
+  width: 28px;
+  height: 28px;
+  color: #d2b061;
+  transform: translateY(-50%);
+  transition: transform 0.4s ease, color 0.3s ease;
+}
+
+.sc-card:hover .sc-card-sparkle {
+  color: #e7a145;
+  transform: translateY(-50%) rotate(90deg) scale(1.15);
+}
+
+.sc-card-title {
+  margin: 0 0 0.6rem;
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: #633a11;
+}
+
+.sc-card-meta {
+  margin: 0;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 300;
+  color: #555;
+}
+
+/* skill chips */
+.sc-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sc-chip {
+  padding: 0.22rem 0.65rem;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 400;
+  color: #633a11;
+  background: #fff7ec;
+  border: 1px solid #c08552;
+  border-radius: 999px;
+}
+
+@keyframes scFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1100px) {
+  .sc-layout {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  /* clouds sit side by side above the cards */
+  .sc-bubbles {
+    position: static;
+    flex-direction: row;
+    justify-content: center;
+    gap: 1.5rem;
+  }
+
+  .sc-bubble {
+    width: 230px;
+  }
+
+  .sc-cards {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .sc-section {
+    padding: 3rem 0 4rem;
+  }
+
+  .sc-bubbles {
+    gap: 0.5rem;
+  }
+
+  .sc-bubble {
+    width: 160px;
+  }
+
+  .sc-bubble-label {
+    font-size: 1.1rem;
+  }
+
+  .sc-bubble-label--long {
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+  }
+
+  .sc-bubble.is-active .sc-bubble-label::after {
+    width: 28px;
+    bottom: 38%;
+  }
+
+  .sc-cards {
+    grid-template-columns: 1fr;
+    width: 100%;
+    padding-bottom: 0;
+  }
+
+  .sc-cards > :nth-child(even) {
+    top: 0;
+  }
+}

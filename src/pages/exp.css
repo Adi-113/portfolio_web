@@ -1,0 +1,387 @@
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=League+Spartan:wght@500;600;700&display=swap');
+        
+        * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+        }
+        
+        .timeline-page {
+          min-height: 100vh;
+          padding: 0;
+          font-family: 'Crimson Pro', serif;
+        }
+        
+        /* Header Navigation */
+        .page-header {
+          background: transparent;
+          padding: 2rem 4rem;
+          position: sticky;
+          top: 0;
+          z-index: 100;
+          background: rgba(240, 235, 229, 0.95);
+          backdrop-filter: blur(10px);
+        }
+        
+        .header-container {
+          max-width: 1400px;
+          margin: 0 auto;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+        
+        .logo-name {
+          font-family: 'Crimson Pro', serif;
+          font-size: 1.4rem;
+          font-weight: 700;
+          color: #2d3436;
+        }
+        
+        .main-nav {
+          display: flex;
+          gap: 3rem;
+        }
+        
+        .nav-link {
+          font-family: 'League Spartan', sans-serif;
+          font-size: 1rem;
+          font-weight: 500;
+          color: #2d3436;
+          text-decoration: none;
+          transition: color 0.3s ease;
+          position: relative;
+        }
+        
+        .nav-link::after {
+          content: '';
+          position: absolute;
+          bottom: -4px;
+          left: 0;
+          width: 0;
+          height: 2px;
+          background: #5a8a7a;
+          transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover {
+          color: #5a8a7a;
+        }
+        
+        .nav-link:hover::after {
+          width: 100%;
+        }
+        
+        .timeline-container {
+          max-width: 1400px;
+          margin: 0 auto;
+          padding: 3rem 4rem 4rem;
+        }
+        
+        .timeline-grid {
+          display: block;
+          max-width: 1200px;
+          margin: 0 auto;
+        }
+        
+        .timeline-section {
+          position: relative;
+        }
+        
+        .section-header {
+          font-family: 'League Spartan', sans-serif;
+          font-size: 2.2rem;
+          font-weight: 700;
+          color: #5a8a7a;
+          letter-spacing: 0.05em;
+          margin-bottom: 3.5rem;
+          animation: fadeInDown 0.6s ease-out;
+        }
+        
+        @keyframes fadeInDown {
+          from {
+            opacity: 0;
+            transform: translateY(-20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        
+        .timeline-line {
+          position: absolute;
+          left: 13px;
+          top: 80px;
+          bottom: 10px;
+          width: 2px;
+          background: linear-gradient(to bottom, #5a8a7a 0%, #7aa89a 100%);
+        }
+        
+        .timeline-items {
+          position: relative;
+        }
+        
+        .timeline-item {
+          position: relative;
+          padding-left: 50px;
+          margin-bottom: 3rem;
+          animation: fadeInUp 0.6s ease-out backwards;
+        }
+        
+        .timeline-item:nth-child(1) { animation-delay: 0.1s; }
+        .timeline-item:nth-child(2) { animation-delay: 0.15s; }
+        .timeline-item:nth-child(3) { animation-delay: 0.2s; }
+        .timeline-item:nth-child(4) { animation-delay: 0.25s; }
+        .timeline-item:nth-child(5) { animation-delay: 0.3s; }
+        .timeline-item:nth-child(6) { animation-delay: 0.35s; }
+        .timeline-item:nth-child(7) { animation-delay: 0.4s; }
+        .timeline-item:nth-child(8) { animation-delay: 0.45s; }
+        .timeline-item:nth-child(9) { animation-delay: 0.5s; }
+        
+        @keyframes fadeInUp {
+          from {
+            opacity: 0;
+            transform: translateY(30px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        
+        .timeline-dot {
+          position: absolute;
+          left: 0;
+          top: 28px;
+          width: 28px;
+          height: 28px;
+          background: #5a8a7a;
+          border: 4px solid #f0ebe5;
+          border-radius: 50%;
+          z-index: 2;
+          transition: all 0.3s ease;
+        }
+        
+        .timeline-item:hover .timeline-dot {
+          transform: scale(1.2);
+          background: #4a7a6a;
+          box-shadow: 0 0 0 8px rgba(90, 138, 122, 0.2);
+        }
+        
+        /* Spiral Notebook Page Card */
+        .notebook-card {
+          position: relative;
+          background: #faf7f2;
+          border: 3px solid #2d3436;
+          border-radius: 12px;
+          padding: 2.5rem 3rem 2.5rem 5.5rem;
+          box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+          transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+          cursor: pointer;
+          overflow: hidden;
+        }
+        
+        .notebook-card:hover {
+          transform: translateX(8px) translateY(-8px);
+          box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+        }
+        
+        /* Left margin with spiral holes */
+        .spiral-margin {
+          position: absolute;
+          left: 0;
+          top: 0;
+          bottom: 0;
+          width: 60px;
+          background: linear-gradient(135deg, #c8d9e6 0%, #b3cde0 100%);
+          border-right: 3px solid #d63031;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-evenly;
+          align-items: center;
+          padding: 1.5rem 0;
+        }
+        
+        .spiral-hole {
+          width: 24px;
+          height: 24px;
+          background: #f0ebe5;
+          border: 3px solid #2d3436;
+          border-radius: 50%;
+          box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .card-content {
+          position: relative;
+          z-index: 1;
+        }
+        
+        .card-year {
+          font-family: 'League Spartan', sans-serif;
+          font-size: 0.95rem;
+          font-weight: 600;
+          color: #5a8a7a;
+          letter-spacing: 0.05em;
+          margin-bottom: 0.8rem;
+          text-transform: uppercase;
+        }
+        
+        .card-title {
+          font-family: 'Crimson Pro', serif;
+          font-size: 1.85rem;
+          font-weight: 700;
+          color: #2d3436;
+          margin-bottom: 0.5rem;
+          line-height: 1.3;
+        }
+        
+        .card-institution {
+          font-family: 'League Spartan', sans-serif;
+          font-size: 1rem;
+          font-weight: 600;
+          color: #5a8a7a;
+          margin-bottom: 1rem;
+          letter-spacing: 0.02em;
+        }
+        
+        .card-description {
+          font-family: 'Crimson Pro', serif;
+          font-size: 1.1rem;
+          line-height: 1.8;
+          color: #636e72;
+        }
+        
+        /* Paper texture overlay */
+        .notebook-card::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 60px;
+          right: 0;
+          bottom: 0;
+          background-image: 
+            repeating-linear-gradient(
+              0deg,
+              transparent,
+              transparent 29px,
+              rgba(90, 138, 122, 0.1) 29px,
+              rgba(90, 138, 122, 0.1) 30px
+            );
+          pointer-events: none;
+          opacity: 0.7;
+        }
+        
+        /* Hover indicator */
+        .hover-indicator {
+          position: fixed;
+          top: 2rem;
+          right: 2rem;
+          display: flex;
+          align-items: center;
+          gap: 1rem;
+          padding: 1rem 2rem;
+          background: white;
+          border: 2px solid #5a8a7a;
+          border-radius: 50px;
+          font-family: 'League Spartan', sans-serif;
+          font-weight: 600;
+          color: #5a8a7a;
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+          animation: pulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+          0%, 100% {
+            transform: scale(1);
+          }
+          50% {
+            transform: scale(1.05);
+          }
+        }
+        
+        .hover-arrow {
+          font-size: 2rem;
+          animation: bounce 1s ease-in-out infinite;
+        }
+        
+        @keyframes bounce {
+          0%, 100% {
+            transform: translateX(0) rotate(-45deg);
+          }
+          50% {
+            transform: translateX(-8px) rotate(-45deg);
+          }
+        }
+        
+        @media (max-width: 1024px) {
+          .timeline-grid {
+            max-width: 100%;
+          }
+          
+          .page-header {
+            padding: 2rem 3rem;
+          }
+          
+          .timeline-container {
+            padding: 3rem 3rem 4rem;
+          }
+          
+          .hover-indicator {
+            display: none;
+          }
+        }
+        
+        @media (max-width: 768px) {
+          .page-header {
+            padding: 1.5rem 2rem;
+          }
+          
+          .header-container {
+            flex-direction: column;
+            gap: 1.5rem;
+            align-items: flex-start;
+          }
+          
+          .main-nav {
+            gap: 2rem;
+            flex-wrap: wrap;
+          }
+          
+          .nav-link {
+            font-size: 0.9rem;
+          }
+          
+          .timeline-container {
+            padding: 2rem 1.5rem 3rem;
+          }
+          
+          .section-header {
+            font-size: 1.8rem;
+          }
+          
+          .timeline-item {
+            padding-left: 40px;
+          }
+          
+          .notebook-card {
+            padding: 1.5rem 1.5rem 1.5rem 4rem;
+          }
+          
+          .card-title {
+            font-size: 1.4rem;
+          }
+          
+          .card-description {
+            font-size: 1rem;
+          }
+          
+          .spiral-margin {
+            width: 50px;
+          }
+          
+          .spiral-hole {
+            width: 20px;
+            height: 20px;
+          }
+        }
