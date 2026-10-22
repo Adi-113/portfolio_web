@@ -5,6 +5,7 @@ import AdiImg from './Adithi.png';
 import FeaturedProjects from './pages/project.js';
 import Timeline from './pages/exp.js';
 import SkillsCerts from './pages/skills.js';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 /* ================= About page content (edit here) ================= */
 const NAME = 'Adithi Madduluri';
