@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './exp.css';
 export default function Timeline() {
-  const [hoveredCard, setHoveredCard] = useState(null);
+  const [, setHoveredCard] = useState(null);
  
   const experience = [
     {

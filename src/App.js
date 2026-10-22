@@ -5,7 +5,6 @@ import AdiImg from './Adithi.png';
 import FeaturedProjects from './pages/project.js';
 import Timeline from './pages/exp.js';
 import SkillsCerts from './pages/skills.js';
-import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom';
 
 /* ================= About page content (edit here) ================= */
 const NAME = 'Adithi Madduluri';
@@ -43,16 +42,7 @@ function useTypewriter(words, { typeSpeed = 80, deleteSpeed = 40, pause = 1600 }
   return text;
 }
 
-function Sparkle({ className, style }) {
-  return (
-    <svg className={className} style={style} viewBox="0 0 24 24" aria-hidden="true">
-      <path
-        d="M12 0C13 8 16 11 24 12C16 13 13 16 12 24C11 16 8 13 0 12C8 11 11 8 12 0Z"
-        fill="currentColor"
-      />
-    </svg>
-  );
-}
+
 
 function Header() {
   return (
@@ -69,7 +59,6 @@ function Header() {
 }
 
 function HomePage() {
-  const navigate = useNavigate();
   const typed = useTypewriter(ROLES);
   const reduced = prefersReducedMotion();
 
