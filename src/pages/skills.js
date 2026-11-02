@@ -9,9 +9,9 @@ const skills = [
   { title: 'Programming', items: ['Python', 'SQL', 'R', 'JavaScript', 'HTML5', 'CSS'] },
   {
     title: 'Libraries',
-    items: ['TensorFlow', 'Keras', 'PyTorch', 'OpenCV', 'Scikit-Learn', 'Pandas', 'NumPy', 'Matplotlib', 'Seaborn', 'FastAPI']
+    items: ['TensorFlow', 'Keras', 'PyTorch', 'OpenCV', 'Scikit-Learn', 'Pandas', 'NumPy', 'Matplotlib', 'Seaborn', 'FastAPI','pyspark','Plotly','Dash']
   },
-  { title: 'Frameworks', items: ['React.js', 'Node.js', 'Flask'] },
+  { title: 'Frameworks', items: ['React.js', 'Node.js', 'Flask','D3.js','Streamlit'] },
   { title: 'Databases', items: ['SQL Server', 'MySQL', 'MongoDB'] },
 ];
 
