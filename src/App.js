@@ -50,10 +50,10 @@ function Header() {
     <header className="header">
       <div className="logo">Adithi Madduluri</div>
       <nav className="nav">
-        <a href="/" className="nav-link">About</a>
-        <a href="/projects" className="nav-link">Projects</a>
-        <a href="/experience" className="nav-link">Experience</a>
-        <a href="/skills" className="nav-link">Skills</a>
+        <a href={`${process.env.PUBLIC_URL}/`} className="nav-link">About</a>
+        <a href={`${process.env.PUBLIC_URL}/projects`} className="nav-link">Projects</a>
+        <a href={`${process.env.PUBLIC_URL}/experience`} className="nav-link">Experience</a>
+        <a href={`${process.env.PUBLIC_URL}/skills`} className="nav-link">Skills</a>
       </nav>
     </header>
   );
@@ -204,7 +204,7 @@ function SkillsPage() {
 
 function App() {
   return (
-    <Router>
+    <Router basename={process.env.PUBLIC_URL || '/'}>
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/projects" element={<ProjectsPage />} />
